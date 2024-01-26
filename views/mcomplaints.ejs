@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGUKT/MESS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="mess.css">
+</head>
+<body>
+    <header>
+        <h2>Rajiv Gandhi University of Knowledge and Technologies,Ongole AP</h2>
+    </header>
+
+    <nav class="navbar">
+        <span id="toggle-nav"onclick="toggleNav()" >
+            <i class="fa fa-bars"></i>
+        </span>
+        <div>
+            <img src="logo.png" alt="" height="30" width="30">
+            <h3>MESS MANAGEMENT</h3>
+        </div>
+        <ul id="navlist">
+            <li><a href="/madmin">Time table </a><i class="fa fa-info-circle" aria-hidden="true"></i></li>
+            <li><a href="/mreports">Reports </a><i class="fa fa-money" aria-hidden="true"></i></li>
+            <li><a href="#" style="color:whitesmoke;font-weight:bolder;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Complaints </a><i class="fa fa-history" aria-hidden="true"></i></li>
+            <li><a href="/logout">Log out </a><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+        </ul>
+    </nav>
+    <br>
+    <h1 style="text-align: center;color:black;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Complaints</h1><br>
+    <div class="complaints">
+            <%if(!details){%>
+                <h1>No data found</h1>
+            <%}else{%>
+                <%details.forEach((complaint)=>{%>
+                    <table>
+                        <tr><td><span>Name:</span><%=complaint.name%></td><td><span id="span">complaint</span></td></tr>
+                        <tr><td><span>ID:</span><%=complaint.id%></td><td><%=complaint.complaint%></td></tr>
+                        <tr><td><span>Date:</span><%var date=new Date(complaint.date)%><%=date.toLocaleDateString()%></td><td><form action="/mdelete" method="post"><input type="text" style="display: none;" name="id" id="id" value="<%=complaint.id%>"><input id="delete-button" type="submit" value="Delete"></form></td></tr>
+                    </table>
+                <%})%>
+            <%}%>
+    </div>
+    <!-- <table class="complaints">
+        <tbody>
+            <%if(!details){%>
+                <h1>No data found</h1>
+            <%}else{%>
+                <%details.forEach((complaint)=>{%>
+                    <tr><td><%=complaint.name%></td><td><span>complaint</span></td></tr>
+                    <tr><td><%=complaint.id%></td><td><%=complaint.complaint%></td></tr>
+                    <tr><td><%var date=new Date(complaint.date)%><%=date.toLocaleDateString()%></td><td><form action="/mdelete" method="post"><input type="text" style="display: none;" name="id" id="id" value="<%=complaint.id%>"><input type="submit" value="Delete"></form></td></tr>
+                <%})%>
+            <%}%>
+        </tbody>
+    </table> -->
+
+
+
+
+
+
+    <div class="footer">
+        <p>2016-17 © Rajiv Gandhi University of Knowledge Technologies, Ongole-Campus. All rights reserved.</p>
+        <p>The Rajiv Gandhi University of Knowledge Technologies has been constituted under A.P. Act No. 18 of 2008.</p>
+    </div>
+
+
+
+
+
+
+    <script>
+        const nav=document.querySelector("#navlist");
+        function toggleNav(){
+            if(nav.style.display==="")
+                nav.style.display="block";
+            else
+                nav.style.display="";
+        }
+    </script>
+</body>
+</html>

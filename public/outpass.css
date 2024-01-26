@@ -1,0 +1,300 @@
+body, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body {
+    min-height: 100dvh;
+    background-color: #e4e1c4;
+}
+header {
+    background-color: #f8f8f8;
+    text-align: center;
+    height: calc(header);
+    padding:10px 0;
+}
+/* Navbar */
+#login-icon {
+    font-size: 100px;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: rgb(66, 94, 59);
+}
+.navbar {
+    position: relative;
+    background-image: linear-gradient(rgb(69, 212, 146),rgb(84, 183, 207));
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar > div {
+    display: flex;
+    align-items: center;
+}
+#navlist {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar img {
+    margin:0 10px;
+    display: inline;
+}
+#navlist li {
+    flex: auto;
+    text-align: center;
+    padding-right: 30px;
+}
+#navlist a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+#navlist a:hover {
+    color:whitesmoke;
+    font-weight:bolder;
+    text-shadow: 3px 0px 3px rgba(30,193,197,0.59);
+}
+#toggle-nav {
+    display: none;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+body {
+    position: relative;
+    border-bottom: 1px solid rgb(157, 157, 161);
+    padding-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(182, 173, 173);
+    justify-content: center;
+    align-items: center;
+}
+/* Outpass request form */
+.request-form{
+    margin: 10px auto;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input-element {
+    margin: 0 40px;
+}
+.input-element label {
+    display: inline-block;
+    margin-left: 3px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.input-element input,select {
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    box-shadow: 4px 4px 11px 0px rgba(192,201,139,1);
+}
+.request-form button {
+    background: rgb(255, 153, 0);
+    font-size: 20px;
+    padding: 5px 15px;
+    display: block;
+    text-align: center;
+    margin: 15px auto;
+    border-radius: 5px;
+    box-shadow: 4px 4px 11px 0px rgba(160,179,55,1);
+    border: none;
+}
+/* Outpass change password */
+.change-password {
+    background-image: linear-gradient(rgb(85, 144, 233),rgb(155, 211, 211),rgb(21, 86, 95));
+    display: none;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    width: 270px;
+    height: 290px;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.change-password h2 {
+    margin-top: 35px;
+    color:whitesmoke;
+    text-shadow: 3px 0px 3px rgba(30,193,197,0.59);
+}
+.change-password input[type="password"],.change-password input[type="text"] {
+    margin: 0 45px;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    border:none;
+    border-bottom: 1px solid;
+    outline: none;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.change-password button {
+    width: 180px;
+    margin: 0 45px;
+    height: 30px;
+    border-radius: 30px;
+    font-weight: bolder;
+}
+.change-password form {
+    position: relative;
+    margin-top: -10px;
+}
+#exit {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 1px;
+    cursor: pointer;
+}
+input[type="checkbox"] {
+    margin: 10px 10px 0 45px;
+}
+/* Student details outpass */
+.details,.requests,.accepts,.rejects,.student-details,.checkin-checkout {
+    width: 500px;
+    line-height: 40px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #f0eff5;
+    border-radius: 10px;
+    box-shadow: 4px 4px 11px 0px rgba(0,0,0,0.75);
+}
+.details td,.requests td {
+    width: 200px;
+    padding-left: 25px;
+}
+.details td:first-child {
+    color: rgb(66, 94, 59);
+    font-weight: bold;
+}
+.accepts,.rejects,.student-details,.checkin-checkout {
+    width: 1200px;
+    text-align: center;
+}
+.accepts thead th, .rejects thead th,.student-details thead th,.checkin-checkout thead th {
+    color: black;
+    text-shadow: 3px 0px 3px rgba(30,193,197,0.59);
+}
+.checkin-checkout .checkin-out {
+    border-radius: 5px;
+    padding: 3px;
+    border: none;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+.requests {
+    width: 800px;
+    text-align: center;
+}
+.requests input {
+    background: rgb(255, 153, 0);
+    font-size: 18px;
+    padding: 5px 15px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: 15px auto;
+    border-radius: 5px;
+    box-shadow: 4px 4px 11px 0px rgba(160,179,55,1);
+    border: none;
+    cursor: pointer;
+}
+.request {
+    width: 500px;
+    line-height: 40px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #f0eff5;
+    border-radius: 10px;
+    box-shadow: 4px 4px 11px 0px rgba(0,0,0,0.75);
+}
+.request p {
+    margin-left: 20px;
+    
+}
+.request div {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+.request input {
+    padding: 8px;
+    border-radius: 5px;
+    background: rgb(255, 153, 0);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.request span {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    width: 200px;
+    text-shadow: 3px 0px 3px rgba(30,193,197,0.59);
+}
+.history {
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #f0eff5;
+    border-radius: 10px;
+    border-collapse: collapse;
+    box-shadow: 4px 4px 11px 0px rgba(0,0,0,0.75);
+}
+.history thead th {
+    color:black;
+    font-weight:bolder;
+    text-shadow: 3px 0px 3px rgba(30,193,197,0.59);
+}
+.history tr,.history td,.history th {
+    border: 1px solid;
+}
+.history tr {
+    height: 30px;
+}
+.history thead > tr {
+    border: none;
+}
+
+
+
+
+@media (max-width:500px){
+    #toggle-nav {
+        display: block;
+    }
+    #navlist {
+        flex-direction: column;
+        display: none;
+    }
+    #navlist li{
+        text-align: left;
+        padding-bottom: 3px;
+        background-color: yellow;
+        border: 1px solid;
+    }
+}

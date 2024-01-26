@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGUKT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Rajiv Gandhi University of Knowledge and Technologies,Ongole AP</h2>
+    </header>
+
+    <nav class="navbar">
+        <span id="toggle-nav"onclick="toggleNav()" >
+            <i class="fa fa-bars"></i>
+        </span>
+        <ul id="navlist">
+            <!-- <img src="logo.png" alt="" height="50" width="50"> -->
+            <li><a href="#" style="color:black;">Home</a></li>
+            <li><a href="/finance">Finance Management</a></li>
+            <li><a href="/outpass">Outpass Management</a></li>
+            <li><a href="/mess">Mess Management</a></li>
+            <li><a href="/logout">Log out </a><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+        </ul>
+    </nav>
+    
+    <div class="stackimages">
+        <div class="image1"><img src="finance.jpg" alt=""></div>
+        <div class="image2"><img src="outpass.jpg" alt=""></div>
+        <div class="image3"><img src="mess.jpg" alt=""></div>
+    </div>
+
+
+    <div class="footer">
+        <p>2016-17 © Rajiv Gandhi University of Knowledge Technologies, Ongole-Campus. All rights reserved.</p>
+        <p>The Rajiv Gandhi University of Knowledge Technologies has been constituted under A.P. Act No. 18 of 2008.</p>
+    </div>
+
+
+
+
+
+
+    <script>
+        const nav=document.querySelector("#navlist");
+        function toggleNav(){
+            if(nav.style.display==="")
+                nav.style.display="block";
+            else
+                nav.style.display="";
+        }
+    </script>
+</body>
+</html>

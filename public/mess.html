@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGUKT/MESS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Rajiv Gandhi University of Knowledge and Technologies,Ongole AP</h2>
+    </header>
+
+    <nav class="navbar">
+        <!-- <span id="toggle-nav"onclick="toggleNav()" >
+            <i class="fa fa-bars"></i>
+        </span> -->
+        <ul id="navlist">
+            <!-- <img src="logo.png" alt="" height="50" width="50"> -->
+            <li><a href="/">Home</a></li>
+            <li><a href="/finance">Finance Management</a></li>
+            <li><a href="/outpass">Outpass Management</a></li>
+            <li><a href="#" style="color:whitesmoke;font-weight:bolder;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Mess Management</a></li>
+        </ul>
+    </nav>
+    
+
+    <div class="wrap-mess">
+        <h1 style="text-align: center;color:whitesmoke;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Mess Management</h1>
+        <div class="mess-login">
+            <div id="mstudent-login">
+                <img src="graduated.png" alt="" width="150" height="120">
+                <h3>Student Portal</h3>
+            </div>
+            <div id="madmin-login">
+                <img src="administrator.png" alt="" width="150" height="120">
+                <h3>Admin Portal</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="student-signin">
+        <span id="exit-student">&#10005;</span> 
+        <form action="/mstudentlogin" method="post">
+            <!-- <h1 style="text-align: center;">Sign in</h1><br> -->
+            <i class="fa fa-user-circle-o" aria-hidden="true" id="login-icon"></i>
+            <input type="text" name="username" id="username" placeholder="Username"><br>
+            <input type="password" name="password" id="password" placeholder="password"><br><br>
+            <button type="submit" style="background-color: rgb(87, 228, 228);">Sign in</button>
+        </form>
+    </div>
+    <div class="admin-signin">
+        <span id="exit-admin">&#10005;</span> 
+        <form action="/madminlogin" method="post">
+            <h1 style="text-align: center;margin-top:25px;color:whitesmoke;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Sign in</h1><br>
+            <!-- <i class="fa fa-user-circle-o" aria-hidden="true" id="login-icon"></i> -->
+            <input type="text" name="username" id="username" value="admin"><br>
+            <input type="password" name="password" id="password" value="admin@123"><br><br>
+            <button type="submit" style="background-color: rgb(87, 228, 228);">Sign in</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>2016-17 © Rajiv Gandhi University of Knowledge Technologies, Ongole-Campus. All rights reserved.</p>
+        <p>The Rajiv Gandhi University of Knowledge Technologies has been constituted under A.P. Act No. 18 of 2008.</p>
+    </div>
+
+
+
+
+
+
+    <script>
+        const nav=document.querySelector("#navlist");
+        function toggleNav(){
+            if(nav.style.display==="")
+                nav.style.display="block";
+            else
+                nav.style.display="";
+        }
+        const studentExit = document.querySelector("#exit-student");
+        const adminExit = document.querySelector("#exit-admin");
+        const studentSignin = document.querySelector(".student-signin");
+        const adminSignin = document.querySelector(".admin-signin");
+        const studentSign = document.querySelector("#mstudent-login");
+        const adminSign = document.querySelector("#madmin-login");
+        studentSign.addEventListener('click',()=>{
+            studentSignin.style.display = "block";
+        });
+        adminSign.addEventListener('click',()=>{
+            adminSignin.style.display = "block";
+        });
+        studentExit.addEventListener('click',()=>{
+            studentSignin.style.display = 'none';
+        });
+        adminExit.addEventListener('click',()=>{
+            adminSignin.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

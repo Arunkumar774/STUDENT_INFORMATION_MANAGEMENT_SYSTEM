@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGUKT/OUTPASS/REQUEST</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="outpass.css">
+</head>
+<body>
+    <header>
+        <h2>Rajiv Gandhi University of Knowledge and Technologies,Ongole AP</h2>
+    </header>
+    <br>
+    <h1 style="text-align: center;color:black;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Student request</h1>
+    <div class="request">
+        <p><span>ID</span>  <%=data.id%></p>
+        <p><span>Name</span> <%=data.name%></p>
+        <p><span>Type</span> <%=data.type%></p>
+        <p><span>From</span> <%var date=new Date(data.ldatetime)%><%=date.toLocaleDateString()%><%=date.toLocaleTimeString()%></p>
+        <p><span>To</span> <%var date=new Date(data.rdatetime)%><%=date.toLocaleDateString()%><%=date.toLocaleTimeString()%></p>
+        <p><span>Address</span> <%=data.address%></p>
+        <p><span>Reason</span> <%=data.reason%></p>
+        <p><span>Phone</span> <%=data.phone%></p>
+        <div>
+            <form action="/accept" method="post"><input type="text" style="display: none;" name="id" id="id" value="<%=data.id%>"><input type="submit" value="Accept"></form>
+            <form action="/reject" method="post"><input type="text" style="display: none;" name="id" id="id" value="<%=data.id%>"><input type="submit" value="Reject"></form>
+        </div>
+    </div>
+    
+
+
+    <div class="footer">
+        <p>2016-17 © Rajiv Gandhi University of Knowledge Technologies, Ongole-Campus. All rights reserved.</p>
+        <p>The Rajiv Gandhi University of Knowledge Technologies has been constituted under A.P. Act No. 18 of 2008.</p>
+    </div>
+</body>
+</html>

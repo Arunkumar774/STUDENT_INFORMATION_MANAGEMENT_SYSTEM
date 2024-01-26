@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGUKT/FINANCE/PAY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="finance.css">
+</head>
+<body>
+    <header>
+        <h2>Rajiv Gandhi University of Knowledge and Technologies,Ongole AP</h2>
+    </header>
+
+    <nav class="navbar">
+        <span id="toggle-nav"onclick="toggleNav()" >
+            <i class="fa fa-bars"></i>
+        </span>
+        <div>
+            <img src="logo.png" alt="" height="30" width="30">
+            <h3>FINANCE MANAGEMENT</h3>
+        </div>
+        <ul id="navlist">
+            <li><a href="/">Home </a><i class="fa fa-home" aria-hidden="true"></i></li>
+            <li><a href="/finance">Details </a><i class="fa fa-info-circle" aria-hidden="true"></i></li>
+            <li><a href="#" style="color:whitesmoke;font-weight:bolder;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Pay </a><i class="fa fa-money" aria-hidden="true"></i></li>
+            <li><a href="/fcheckhistory">Check History </a><i class="fa fa-history" aria-hidden="true"></i></li>
+            <li><a href="#" id="change">Change Password </a><i class="fa fa-key" aria-hidden="true"></i></li>
+            <li><a href="/logout">Log out </a><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+        </ul>
+    </nav>
+    
+
+    <div class="pay">
+        <h2 style="text-decoration:underline;text-align:center;color:black;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);"><b>Please fill below details</b></h2>
+        <div class="input-element">
+            <label for="">Date*</label><br>
+            <input type="date" name="date" id="date">
+        </div>
+        <div class="input-element">
+            <label for="">Name of Student*</label><br>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="input-element">
+            <label for="">Id Number*</label><br>
+            <input type="text" name="id" id="id">
+        </div>
+        <div class="input-element">
+            <label for="">Class and Year*</label><br>
+            <input type="text" name="class" id="class">
+        </div>
+        <div class="input-element">
+            <label for="">E-mail*</label><br>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="input-element">
+            <label for="">Phone Number*</label><br>
+            <input type="text" name="phone" id="phone">
+        </div>
+        <div class="input-element radio" >
+            <label for="type">Type*</label>
+            <input type="radio" name="type" id="type" value="Tuition Fee"><span> Tuition Fee</span> 
+            <input type="radio" name="type" id="type" value="Hostel Fee"><span> Hostel Fee </span>
+            <input type="radio" name="type" id="type" value="Condonation Fee"><span> Condonation Fee </span>
+        </div>
+        <div class="input-element">
+            <label for="">Amount paid RS.*</label><br>
+            <input type="text" name="amount" id="amount">
+        </div>
+        <div class="input-element">
+            <label for="">Amount in words*</label><br>
+            <input type="text" name="amountword" id="amountword">
+        </div>
+        <div class="input-element">
+            <label for="">Remarks*</label><br>
+            <input type="text" name="amountword" id="">
+        </div>
+        <div>
+            <button id="order-button1">Pay</button>
+        </div>
+    </div>
+    
+    <!-- Change student password -->
+    <div class="change-password">
+        <span id="exit">&#10005;</span> 
+        <form action="/changepassword" method="post">
+            <h2 style="text-align: center;">Change Password</h2><br>
+            <p id="error" style="color:red;display:none;margin: -15px 45px 0 45px;"></p>
+            <input type="password" class="input" name="oldpassword" id="oldpassword" placeholder="Enter old password"><br>
+            <input type="password" class="input" name="newpassword" id="newpassword" placeholder="new password"><br>
+            <input type="password" class="input" name="repassword" id="repassword" placeholder="Retype new password"><br>
+            <input type="checkbox" name="show-password" id="show-password"><span>Show password</span> <br><br>
+            <button type="submit" id="change-button" style="background-color: rgb(87, 228, 228);">Change Password</button>
+        </form>
+    </div>
+
+
+    <div class="footer">
+        <p>2016-17 © Rajiv Gandhi University of Knowledge Technologies, Ongole-Campus. All rights reserved.</p>
+        <p>The Rajiv Gandhi University of Knowledge Technologies has been constituted under A.P. Act No. 18 of 2008.</p>
+    </div>
+
+    <script>
+        const exitButton = document.querySelector("#exit");
+        const changePassword = document.querySelector(".change-password")
+        const change = document.querySelector("#change");
+        change.addEventListener('click',()=>{
+            changePassword.style.display = "block";
+        })
+        exitButton.addEventListener('click',()=>{
+            changePassword.style.display = 'none';
+        })
+        const changeButton = document.querySelector("#change-button");
+        var error;
+        changeButton.addEventListener('click',(e)=>{
+            if(document.getElementById("oldpassword").value=="" || document.getElementById("newpassword").value=="" || document.getElementById("repassword").value==""){
+                error="Please enter passwords";
+            }else if(document.getElementById("newpassword").value !== document.getElementById("repassword").value){
+                error="passwords mismatch";
+            }else {
+                document.querySelector('#error').style.display="none";
+            }
+            if(error){
+                document.querySelector('#error').innerHTML=error;
+                document.querySelector('#error').style.display="";
+                e.preventDefault();
+                error=undefined;
+            }
+        })
+        var inputTags = document.querySelectorAll(".input");
+        document.querySelector("#show-password").addEventListener('click',()=>{
+            if(document.querySelector("#show-password").checked === true){
+                for(var i=0;i<inputTags.length;i++){
+                    inputTags[i].type="text";
+                }
+            }else {
+                for(var i=0;i<inputTags.length;i++){
+                    inputTags[i].type="password";
+                }
+            }
+        })
+    </script>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+            document.getElementById("order-button1").onclick = function(e){
+                let orderID;
+                if(document.getElementById("name").value==="" || document.getElementById("date").value==="" || document.getElementById("class").value==="" || document.getElementById("id").value==="" || document.getElementById("amount").value==="" || document.getElementById("amountword").value===""){
+                    alert("Please fill all required fields!")
+                }
+                else{
+                    // Storing data filled by user
+                    var url="/details";
+                    var data={
+                        id: document.getElementById("id").value,
+                        name: document.getElementById("name").value,
+                        class: document.getElementById("class").value,
+                        date: document.getElementById("date").value,
+                        phone: document.getElementById("phone").value,
+                        type: document.getElementById("type").value,
+                        amount: document.getElementById("amount").value
+                    }
+                    var xmlHttp=new XMLHttpRequest();
+                    xmlHttp.open("POST",url,true);
+                    xmlHttp.setRequestHeader("content-type","application/json");
+                    xmlHttp.send(JSON.stringify(data));
+                    // Payment order
+                    var url="/api/payment/order";
+                    var params={
+                        amount: document.getElementById("amount").value*100,
+                        currency:   "INR",
+                        receipt:    "rguktfee001",
+                        payment_capture:    "1"
+                    };
+                    var xmlHttp=new XMLHttpRequest();
+                    xmlHttp.onreadystatechange=function(res){
+                        if(xmlHttp.readyState ===4){
+                            res=JSON.parse(xmlHttp.responseText);
+                           var orderID=res.sub.id
+                           var options={
+                            "key":"rzp_test_DzBXjDCe92SrCk",
+                            "currency":"INR",
+                            "name":"RGUKT Ongole",
+                            "description":"RGUKT FEE Transaction",
+                            "order_id":orderID,
+                            "handler":function(response){
+                                var payment_id=response.razorpay_payment_id;
+                                var order_id=response.razorpay_order_id;
+                                var signature=response.razorpay_signature;
+                                var url="/api/payment/verify";
+                                var params={
+                                    razorpay_order_id:order_id,
+                                    razorpay_payment_id:payment_id,
+                                    razorpay_signature:signature
+                                };
+                                var xmlHttp=new XMLHttpRequest();
+                                xmlHttp.onreadystatechange=function(res){
+                                    if(xmlHttp.readyState === 4){
+                                        status=xmlHttp.responseText
+                                        if(xmlHttp.responseText===status){
+                                            // res.send(`<h1>Your payment to rgukt ongole is Successful</h1><br><a href="/">Click to goto Home Page</a> `)
+                                            alert("Your payment to rgukt ongole is Successful");
+                                            // window.reload();
+                                            window.open("http://localhost:3000/receipt");
+                                          }
+                                        else{
+                                            // res.send(`<h1>Your payment to rgukt ongole is Failed</h1><br><a href="/pay.html">Click to go back to pay</a> `)
+                                            alert("Your payment to rgukt ongole is Failed")
+                                        }
+                                    }
+                                }
+                                xmlHttp.open("POST",url,true);
+                                xmlHttp.setRequestHeader("content-type","application/json");
+                                xmlHttp.send(JSON.stringify(params));
+                            },
+                            "theme":{
+                                "color":"#0EB9F2"
+                            }  
+                        };
+                        var rzp1=new Razorpay(options);
+                        rzp1.open();
+                        e.preventDefault();
+                        }
+                    }
+                xmlHttp.open("POST",url,true);
+                xmlHttp.setRequestHeader("content-type","application/json");
+                xmlHttp.send(JSON.stringify(params));
+                }
+            }
+        </script>
+
+
+    <script>
+        const nav=document.querySelector("#navlist");
+        function toggleNav(){
+            if(nav.style.display==="")
+                nav.style.display="block";
+            else
+                nav.style.display="";
+        }
+    </script>
+</body>
+</html>

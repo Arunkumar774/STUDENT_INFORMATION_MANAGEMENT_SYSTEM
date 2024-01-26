@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGUKT/OUTPASS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="outpass.css">
+</head>
+<body>
+    <header>
+        <h2>Rajiv Gandhi University of Knowledge and Technologies,Ongole AP</h2>
+    </header>
+
+    <nav class="navbar">
+        <span id="toggle-nav"onclick="toggleNav()" >
+            <i class="fa fa-bars"></i>
+        </span>
+        <div>
+            <img src="logo.png" alt="" height="30" width="30">
+            <h3>OUTPASS MANAGEMENT</h3>
+        </div>
+        <ul id="navlist">
+            <li><a href="/owarden">Requests </a><i class="fa fa-history" aria-hidden="true"></i></li>
+            <li><a href="/oaccepts">Accepts </a><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
+            <li><a href="#" style="color:whitesmoke;font-weight:bolder;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Rejects </a><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
+            <li><a href="/ostudentdetails">Student details </a><i class="fa fa-info-circle" aria-hidden="true"></i></li>
+            <li><a href="/logout">Log out </a><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+        </ul>
+    </nav>
+    <br>
+    <h1 style="text-align: center;color:black;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Rejects</h1><br>
+    <table class="rejects">
+        <thead>
+            <tr><th>id</th><th>name</th><th>type</th><th>From</th><th>To</th><th>address</th><th>reason</th><th>phone</th></tr>
+        </thead>
+        <%data.forEach((student)=>{%>
+            <tr><td><%=student.id%></td><td><%=student.name%></td><td><%=student.type%></td><td><%var date=new Date(student.ldatetime)%><%=date.toLocaleDateString()%><%=date.toLocaleTimeString()%></td><td><%var date=new Date(student.rdatetime)%><%=date.toLocaleDateString()%><%=date.toLocaleTimeString()%></td><td><%=student.address%></td><td><%=student.reason%></td><td><%=student.phone%></td></tr>
+        <%})%>
+    </table><br><br>
+    
+
+
+    <div class="footer">
+        <p>2016-17 © Rajiv Gandhi University of Knowledge Technologies, Ongole-Campus. All rights reserved.</p>
+        <p>The Rajiv Gandhi University of Knowledge Technologies has been constituted under A.P. Act No. 18 of 2008.</p>
+    </div>
+
+    <script>
+        const nav=document.querySelector("#navlist");
+        function toggleNav(){
+            if(nav.style.display==="")
+                nav.style.display="block";
+            else
+                nav.style.display="";
+        }
+        document.querySelector('input').addEventListener('click',(e)=>{
+            console.log(document.querySelector('input').id);
+        })
+    </script>
+
+</body>
+</html>

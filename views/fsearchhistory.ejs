@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGUKT/FINANCE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="finance.css">
+</head>
+<body>
+    <header>
+        <h2>Rajiv Gandhi University of Knowledge and Technologies,Ongole AP</h2>
+    </header>
+
+    <nav class="navbar">
+        <span id="toggle-nav"onclick="toggleNav()" >
+            <i class="fa fa-bars"></i>
+        </span>
+        <div>
+            <img src="logo.png" alt="" height="30" width="30">
+            <h3>FINANCE MANAGEMENT</h3>
+        </div>
+        <ul id="navlist">
+            <li><a href="#" style="color:black;">Transactions </a><i class="fa fa-history" aria-hidden="true"></i></li>
+            <li><a href="/fstudentdetails">Student details </a><i class="fa fa-info-circle" aria-hidden="true"></i></li>
+            <li><a href="/addstudent">Add student </a><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
+            <li><a href="#" id="remove">Remove student </a><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
+            <li><a href="/logout">Log out </a><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+        </ul>
+    </nav>
+    <br>
+    <div class="search-history">
+        <div>
+            <form action="/fsearchhistorybydate" method="post">
+                <label for="">From:  </label><input type="date" name="from" id="from"> <label for="">To:  </label><input type="date" name="to" id="to"> <input type="submit" id="searchbydate" value="Search">
+            </form>
+        </div>
+        <div>
+            <form action="/fsearchhistorybyid" method="post">
+                <label for="">ID:  </label><input type="text" name="id" id="id">  <input type="submit" id="searchbyid" value="Search">
+            </form>
+        </div>
+    </div><br><br><br>
+    <h1 style="text-align: center;color:black;font-weight:bolder;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Transactions Details</h1><br>
+    <table class="history">
+        <thead>
+            <tr><th>id</th><th>name</th><th>class</th><th>date</th><th>phone</th><th>type</th><th>amount</th><th>Transaction id</th></tr>
+        </thead>
+        <%results.forEach((student)=>{%>
+            <tr><td><%=student.id%></td><td><%=student.name%></td><td><%=student.class%></td><td><%var date=new Date(student.date)%><%=date.toLocaleDateString()%></td><td><%=student.phone%></td><td><%=student.type%></td><td><%=student.amount%></td><td><%=student.trans_id%></td></tr>
+        <%})%>
+    </table><br><br>
+
+    <div class="remove-student">
+        <span id="exit">&#10005;</span> 
+        <h2 style="text-align: center;">Remove Student</h2>
+        <form action="/removestudent" method="post">
+            <input type="text" name="id" id="id" placeholder="Student id"><br>
+            <button type="submit" style="background-color: rgb(87, 228, 228);">Remove Student</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>2016-17 © Rajiv Gandhi University of Knowledge Technologies, Ongole-Campus. All rights reserved.</p>
+        <p>The Rajiv Gandhi University of Knowledge Technologies has been constituted under A.P. Act No. 18 of 2008.</p>
+    </div>
+
+    <script>
+        const nav=document.querySelector("#navlist");
+        function toggleNav(){
+            if(nav.style.display==="")
+                nav.style.display="block";
+            else
+                nav.style.display="";
+        }
+        const removeExit = document.querySelector("#exit");
+        const removeStudent = document.querySelector(".remove-student");
+        const remove = document.querySelector("#remove");
+        remove.addEventListener('click',()=>{
+            removeStudent.style.display = "block";
+        });
+        removeExit.addEventListener('click',()=>{
+            removeStudent.style.display = 'none';
+        });
+        document.querySelector("#searchbydate").addEventListener("click",(e)=>{
+            if(document.querySelector("#from").value==="" && !document.querySelector("#to").value===""){
+                e.preventDefault();
+            }
+        })
+        document.querySelector("#searchbyid").addEventListener("click",(e)=>{
+            if(document.querySelector("#id").value===""){
+                e.preventDefault();
+            }
+        })
+    </script>
+
+</body>
+</html>

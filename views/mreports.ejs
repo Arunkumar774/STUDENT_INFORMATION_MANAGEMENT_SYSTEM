@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGUKT/MESS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="mess.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body>
+    <header>
+        <h2>Rajiv Gandhi University of Knowledge and Technologies,Ongole AP</h2>
+    </header>
+
+    <nav class="navbar">
+        <span id="toggle-nav"onclick="toggleNav()" >
+            <i class="fa fa-bars"></i>
+        </span>
+        <div>
+            <img src="logo.png" alt="" height="30" width="30">
+            <h3>MESS MANAGEMENT</h3>
+        </div>
+        <ul id="navlist">
+            <li><a href="/madmin">Time table </a><i class="fa fa-info-circle" aria-hidden="true"></i></li>
+            <li><a href="#" style="color:whitesmoke;font-weight:bolder;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Reports </a><i class="fa fa-money" aria-hidden="true"></i></li>
+            <li><a href="/mcomplaints">Complaints </a><i class="fa fa-history" aria-hidden="true"></i></li>
+            <li><a href="/logout">Log out </a><i class="fa fa-sign-out" aria-hidden="true"></i></li>
+        </ul>
+    </nav>
+    <br>
+    <h1 style="text-align: center;color:black;text-shadow: 3px 0px 3px rgba(30,193,197,0.59);">Reports</h1><br>
+    <input type="text" style="display: none;" value="<%=data%>" id="data">
+    <div style="display: flex;justify-content: center;">
+        <canvas id="myChart" style="width:100%;max-width:1000px;"></canvas>
+    </div>
+    
+
+    <script>
+        var array = document.querySelector('#data').value;
+        var xValues = ["Quality of Rice", "Quality of Curry", "Status of boiled egg", "Quality of snacks/tea/milk/coffee", "Timeliness of service","Quantity of food", "Neatness of surroundings", "Courtesy of workers", "Following guidelines by workers", "Overall rating"];
+        var yValues = array.split(',');
+        var barColors = ["red", "green","blue","orange","brown","red", "green","blue","orange","brown"];
+
+        new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+            display: true,
+            text: "Feedback report for the month of April 2023"
+            }
+        }
+        });
+    </script>
+
+
+
+
+
+
+    <div class="footer">
+        <p>2016-17 © Rajiv Gandhi University of Knowledge Technologies, Ongole-Campus. All rights reserved.</p>
+        <p>The Rajiv Gandhi University of Knowledge Technologies has been constituted under A.P. Act No. 18 of 2008.</p>
+    </div>
+
+
+
+
+
+
+    <script>
+        const nav=document.querySelector("#navlist");
+        function toggleNav(){
+            if(nav.style.display==="")
+                nav.style.display="block";
+            else
+                nav.style.display="";
+        }
+    </script>
+</body>
+</html>

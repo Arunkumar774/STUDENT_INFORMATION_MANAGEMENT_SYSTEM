@@ -1,0 +1,199 @@
+body, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body {
+    background-image: linear-gradient(rgb(0, 20, 134),rgb(0, 183, 255),rgb(77, 77, 92));
+    min-height: 100dvh;
+}
+header {
+    background-color: #f8f8f8;
+    text-align: center;
+    height: calc(header);
+    padding:10px 0;
+}
+/* Navbar */
+.navbar {
+    position: relative;
+    background-image: linear-gradient(rgb(54, 238, 223),rgb(136, 149, 223));
+    height:40px;
+    padding-top: 10px;
+}
+#navlist {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#navlist img {
+    padding-left: 3px;
+}
+#navlist li {
+    flex: auto;
+    text-align: center;
+    padding-right: 30px;
+}
+#navlist a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+#navlist a:hover {
+    color:whitesmoke;
+    font-weight:bolder;
+    text-shadow: 3px 0px 3px rgba(30,193,197,0.59);
+}
+#toggle-nav {
+    display: none;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+/* Stack images */
+.stackimages {
+    position: relative;
+    margin: 100px auto 250px auto;
+    height: 500px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+.stackimages div {
+    transform: rotate(-15deg);
+}
+.stackimages img{
+    height: 300px;
+    width: 500px;
+}
+.stackimages .image1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.stackimages .image2 {
+    position: absolute;
+    left: 250px;
+    top: 150px;
+}
+.stackimages .image3 {
+    position: absolute;
+    left: 500px;
+    top: 300px;
+}
+
+/* Sign in */
+#login-icon {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 60px;
+}
+.student-signin,.admin-signin,.warden-signin,.security-signin {
+    background-image: linear-gradient(rgb(85, 144, 233),rgb(155, 211, 211),rgb(21, 86, 95));
+    display: none;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    width: 270px;
+    height: 250px;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.student-signin input,.admin-signin input,.warden-signin input,.security-signin input {
+    margin: 0 45px;
+    height: 30px;
+    padding-left: 5px;
+    margin-top: 15px;
+    border:none;
+    border-bottom: 1px solid;
+    outline: none;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.student-signin button,.admin-signin button,.warden-signin button,.security-signin button {
+    width: 180px;
+    margin: 0 45px;
+    height: 30px;
+    font-weight: bolder;
+    border-radius: 30px;
+    background-image: linear-gradient(rgb(87, 228, 228),rgb(163, 163, 163));
+}
+.student-signin form,.admin-signin form,.warden-signin form,.security-signin form {
+    position: relative;
+}
+#exit-student,#exit-admin,#exit-warden,#exit-security {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 1px;
+    cursor: pointer;
+}
+body {
+    position: relative;
+    border-bottom: 1px solid rgb(157, 157, 161);
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(182, 173, 173);
+    justify-content: center;
+    align-items: center;
+}
+/* Finance */
+.wrap-finance,.wrap-outpass,.wrap-mess {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.finance-login,.outpass-login,.mess-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.finance-login div,.outpass-login div,.mess-login div {
+    height: 250px;
+    width: 400px;
+    background-image: linear-gradient(rgb(197, 192, 192),rgb(241, 239, 239));
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+.finance-login img,.outpass-login img,.mess-login img {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    border-radius: 30px;   
+}
+
+
+
+
+
+
+@media (max-width:500px){
+    #toggle-nav {
+        display: block;
+    }
+    #navlist {
+        flex-direction: column;
+        display: none;
+    }
+    #navlist li{
+        text-align: left;
+        padding-bottom: 3px;
+        background-color: yellow;
+        border: 1px solid;
+    }
+}
